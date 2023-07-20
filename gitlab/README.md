@@ -1,4 +1,4 @@
-# Домашнее задание к занятию "`Название занятия`" - `Фамилия и имя студента`
+# Домашнее задание к занятию "`GitLab`" - `Кириенко Виталий`
 
 
 ### Инструкция по выполнению домашнего задания
@@ -27,6 +27,7 @@
 `В качестве ответа в репозиторий шаблона с решением добавьте скриншоты с настройками раннера в проекте.`
 
 `Скриншоты к заданию 1:`
+
 ![Скриншот 1](https://github.com/vkir43/git/blob/main/gitlab/img/gitlab1.jpg)
 ![Скриншот 2](https://github.com/vkir43/git/blob/main/gitlab/img/gitlab2.jpg)
 ![Скриншот 3](https://github.com/vkir43/git/blob/main/gitlab/img/gitlab3.jpg)
@@ -63,6 +64,7 @@ build:
 ```
 
 `Скриншоты к заданию 2:`
+
 ![Скриншот 1](https://github.com/vkir43/git/blob/main/gitlab/img/gitlab4.jpg)
 ![Скриншот 2](https://github.com/vkir43/git/blob/main/gitlab/img/gitlab5.jpg)
 ![Скриншот 3](https://github.com/vkir43/git/blob/main/gitlab/img/gitlab6.jpg)

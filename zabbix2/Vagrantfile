@@ -1,0 +1,41 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+virt_machines=[
+  {
+    :hostname => "zabbixagent1",
+    :ip => "192.168.100.55"
+  },
+  {
+    :hostname => "zabbixagent2",
+    :ip => "192.168.100.56"
+  }
+]
+
+HOST_SHOW_GUI = false 
+HOST_MEMMORY = "512" 
+HOST_CPUS = 1
+HOST_BRIDGE = "RZ608 Wi-Fi 6E 80MHz"
+HOST_VM_BOX = "generic/ubuntu2004" 
+HOST_CONFIIG_SCRIPT = "zabbix-agent.sh" 
+HOST_USER = 'test'
+HOST_USER_PASS = '123456789' 
+HOST_UPGRADE = 'false' 
+ZABBIX_SERVER_IP = '192.168.100.54'
+
+Vagrant.configure("2") do |config|
+	virt_machines.each do |machine|
+		config.vm.box = HOST_VM_BOX
+		config.vm.define machine[:hostname] do |node|
+			node.vm.hostname = machine[:hostname]
+			node.vm.network :public_network, bridge: HOST_BRIDGE, ip: machine[:ip]
+			node.vm.provider "virtualbox" do |current_vm, override|
+				current_vm.name = machine[:hostname]
+				current_vm.gui = HOST_SHOW_GUI
+				current_vm.memory = HOST_MEMMORY
+				current_vm.cpus = HOST_CPUS
+				override.vm.provision "shell", path: 'zabbix-agent.sh', args: [	'test', 	'123456789',	'false', 	machine[:hostname], 	machine[:ip],	'192.168.100.54'], run: "once"
+			end
+		end
+	end
+end
